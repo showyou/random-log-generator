@@ -1,14 +1,16 @@
+from generator import Generator
 import common
 import random
 import sys
 
-COUNT = 100000
+COUNTS = 100000
 USERS = 1000
 RESOLUTION = 0.0005
 
 stations = common.load_tsv('stations.tsv')
-class gps_generator():
-    def generate(self, count=COUNT, users=USERS):
+class gps_generator(Generator):
+    def generate(self, count=COUNTS, users=USERS):
+
         for cnt in xrange(count):
             user = random.randint(0, users)
             st = random.choice(stations)
@@ -22,6 +24,6 @@ class gps_generator():
 if __name__ == '__main__':
     g = gps_generator()
     if len(sys.argv) > 2:
-        g.generate(int(sys.argv[1]), int(sys.argv[2]))
+        g.generate(int(sys.argv[1]), int(sys.argv[2]) )
     else:
         g.generate()
