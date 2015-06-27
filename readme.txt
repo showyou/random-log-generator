@@ -1,3 +1,7 @@
 random data generator
-$ gps.py
-$ game_log.py
+$ python gps.py
+$ python game_log.py
+
+plot
+$ python gps.py > log.txt
+$ python gpsplot.py log.txt
