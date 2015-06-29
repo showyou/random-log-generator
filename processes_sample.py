@@ -3,22 +3,39 @@ import multiprocessing
 import random
 import time
 
-def worker(timer):
+TIMESPAN = 0.15
+COUNTS = 1000
+PROCESSES = 100
+
+
+def __worker(timer, func, args):
     # カレントプロセス
     p = multiprocessing.current_process()
-    counter = 100 #timer
+    counter = timer #timer
     while counter >= 0:
-        print('%s(PID %s): counter=%d' % (p.name, p.pid, counter))
+        func(*args)
+        #func(p.name, p.pid, counter)
+        #print('%s(PID %s): counter=%d' % (p.name, p.pid, counter))
         counter -= 1
-        time.sleep(0.01)
+        time.sleep(TIMESPAN)
 
-processes = []
-for i in range(5):
-    timer = random.randrange(20)
-    p = multiprocessing.Process(target=worker, args=(timer,))
-    processes.append(p)
-    p.start()
 
-for p in processes:
-    p.join()
+def func_print(name, pid, counter):
+    print('%s(PID %s): counter=%d' % (name, pid, counter))
 
+
+def run(func, args=[]):
+    processes = []
+    for i in range(PROCESSES):
+        timer = random.randrange(COUNTS)
+        p = multiprocessing.Process(target=__worker, args=(timer,func, args))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
+
+
+
+if __name__ == '__main__':
+    run(func_print)
