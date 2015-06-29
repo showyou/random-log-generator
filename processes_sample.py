@@ -3,9 +3,9 @@ import multiprocessing
 import random
 import time
 
-TIMESPAN = 0.5
+TIMESPAN = 2
 COUNTS = 1000
-PROCESSES = 100
+PROCESSES = 500
 
 
 def __worker(timer, func, args):
