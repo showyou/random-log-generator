@@ -3,7 +3,7 @@ import multiprocessing
 import random
 import time
 
-TIMESPAN = 0.15
+TIMESPAN = 0.5
 COUNTS = 1000
 PROCESSES = 100
 
