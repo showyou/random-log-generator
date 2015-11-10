@@ -3,16 +3,16 @@ import random
 import sys
 import datetime
 
-DATES_MAX = 10
-COUNTS = 10000
-USERS = 10000
-ITEMS = 10
-COINS = [100, 500, 1000, 2000]
-INITDATE = [2013, 6, 1]
+DATES_MAX = 300
+COUNTS = 300000
+USERS = 100000
+ITEMS = 100
+COINS = [100, 500, 1000, 2000, 9800]
+INITDATE = [2015, 7, 15]
 
 class GameLogGenerator(Generator):
     def generate(self, dates_max=DATES_MAX, users=USERS, items=ITEMS, counts=COUNTS):
-        print dates_max
+        #print dates_max
         for dm in xrange(dates_max):
             for cnt in xrange(counts):
                 self.gen_record([dm, users, items,])
