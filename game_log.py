@@ -10,6 +10,7 @@ ITEMS = 100
 COINS = [100, 500, 1000, 2000, 9800]
 INITDATE = [2015, 7, 15]
 
+random.seed(0)
 class GameLogGenerator(Generator):
     def generate(self, dates_max=DATES_MAX, users=USERS, items=ITEMS, counts=COUNTS):
         #print dates_max
