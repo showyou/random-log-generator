@@ -4,7 +4,7 @@ import sys
 import datetime
 
 DATES_MAX = 300
-COUNTS = 300000
+COUNTS = 3000
 USERS = 100000
 ITEMS = 100
 COINS = [100, 500, 1000, 2000, 9800]
